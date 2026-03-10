@@ -1,176 +1,656 @@
-from pyecharts.globals import CurrentConfig
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/echarts.min.js"></script>
+        <script type="text/javascript" src="https://assets.pyecharts.org/assets/maps/china.js"></script>
 
-CurrentConfig.ONLINE_HOST = "https://assets.pyecharts.org/assets/"
-
-import pyecharts.options as opts
-from pyecharts.charts import Geo
-from pyecharts.globals import ChartType
-from pyecharts.commons.utils import JsCode
-
-
-def factory_map():
-    # 1. 基础数据
-    # base_coords = {
-    #     "中集(南通)": [120.798482, 32.035295], "中集(润扬)": [119.460497, 32.283244],
-    #     "中集(通利)": [119.464596, 32.291299], "中集(宝伟)": [121.359692, 31.415683],
-    #     "中集(洋山)": [121.791188, 30.871581], "中集(宁波)": [121.764509, 29.891544],
-    #     "中集(太仓)": [121.188718, 31.636139], "泛洋(宁波)": [120.995513, 30.560266],
-    #     "寰宇(启东)": [121.688998, 31.72661], "新华昌(常州)": [120.784167, 31.703564],
-    #     "新华昌(嘉善)": [120.944658, 30.915019], "新华昌(宁波)": [121.797197, 29.926997],
-    #     "寰宇(宁波)": [121.870575, 29.731989], "胜狮(宝山)": [121.464818, 31.387573],
-    #     "中集(漳州)": [118.002058, 24.398558], "中集(新会)": [113.191075, 22.475092],
-    #     "中集(凤岗)": [114.165572, 22.762914], "富华(广州)": [113.16897, 22.84834],
-    #     "寰宇(广州)": [113.571357, 22.647786], "胜狮(厦门)": [118.105125, 24.690285],
-    #     "中集(大连)": [121.828711, 39.043418], "中集(天津)": [117.75373, 39.069586],
-    #     "中集(青岛)": [121.825932, 39.043418], "寰宇(连云港)": [119.314445, 35],
-    #     "寰宇(青岛)": [120.161443, 36.055967], "新华昌(青岛)": [120.000456, 36.333911],
-    #     "新华昌(天津)": [117.795022, 39.312374], "寰宇(锦州)": [121.04958, 40.87381],
-    #     "(世珍)": [120.5634353, 31.9777179], "(日新)": [119.740056, 32.3539623],
-    # }
-    #
-    # factory_raw_data = [
-    #     ("中集(南通)", 2.6), ("中集(润扬)", 1.4), ("中集(通利)", 0.4), ("中集(宝伟)", 4.7),
-    #     ("中集(洋山)", 8.9), ("中集(宁波)", 10.3), ("中集(太仓)", 11.6), ("泛洋(宁波)", 17.0),
-    #     ("寰宇(启东)", 14.8), ("新华昌(常州)", 3.6), ("新华昌(嘉善)", 2.8), ("新华昌(宁波)", 6.7),
-    #     ("寰宇(宁波)", 7.6), ("胜狮(宝山)", 2.2), ("中集(漳州)", 6.3), ("中集(新会)", 17.2),
-    #     ("中集(凤岗)", 25.9), ("富华(广州)", 26.4), ("寰宇(广州)", 20.0), ("胜狮(厦门)", 4.1),
-    #     ("中集(大连)", 6.2), ("中集(天津)", 11.5), ("中集(青岛)", 15.6), ("寰宇(连云港)", 20.4),
-    #     ("寰宇(青岛)", 18.6), ("新华昌(青岛)", 7.4), ("新华昌(天津)", 6.5), ("寰宇(锦州)", 13.7),
-    #     ("(世珍)", 3.4), ("(日新)", 3.3)
-    # ]
-    # brand_map = {
-    #     "中集": "#FF006E", "寰宇": "#3A86FF", "新华昌": "#FFBE0B",
-    #     "胜狮": "#8338EC", "泛洋": "#FB5607", "富华": "#06D6A0",
-    #     "世珍": "grey", "日新": "grey",
-    # }
-    base_coords = {
-        "中集(青岛)": [121.825932, 39.043418],
-        "寰宇(青岛)": [120.161443, 36.055967],
-        "马士基(青岛)": [120.35699, 36.27471],
-
-        "中集(太仓)": [121.188718, 31.636139],
-        "寰宇(启东)": [121.688998, 31.72661],
-        "富华(广州)": [113.16897, 22.84834],
+</head>
+<body>
+    <div id="0e137f4b425446749be492470e591e79" class="chart-container" style="width:100%; height:1100px;"></div>
+    <script>
+        var chart_0e137f4b425446749be492470e591e79 = echarts.init(
+            document.getElementById('0e137f4b425446749be492470e591e79'), 'white', {renderer: 'canvas'});
+        var option_0e137f4b425446749be492470e591e79 = {
+    "backgroundColor": "#F5F7FA",
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "color": [
+        "#c23531",
+        "#2f4554",
+        "#61a0a8",
+        "#d48265",
+        "#749f83",
+        "#ca8622",
+        "#bda29a",
+        "#6e7074",
+        "#546570",
+        "#c4ccd3",
+        "#f05b72",
+        "#ef5b9c",
+        "#f47920",
+        "#905a3d",
+        "#fab27b",
+        "#2a5caa",
+        "#444693",
+        "#726930",
+        "#b2d235",
+        "#6d8346",
+        "#ac6767",
+        "#1d953f",
+        "#6950a1",
+        "#918597"
+    ],
+    "series": [
+        {
+            "type": "scatter",
+            "coordinateSystem": "geo",
+            "symbolSize": 200,
+            "data": [
+                {
+                    "name": "\u534e\u4e1c\u533a\u57df",
+                    "value": [
+                        121.0,
+                        31.0,
+                        "28.1%"
+                    ]
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "color": "#333",
+                "margin": 8,
+                "fontSize": 12,
+                "formatter": function(p){return p.name + '\n' + p.value[2];}
+            },
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "showContent": true,
+                "alwaysShowContent": false,
+                "showDelay": 0,
+                "hideDelay": 100,
+                "formatter": function (params) { return params.name + '\uff1a' + params.value[2]; },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0,
+                "padding": 5
+            },
+            "itemStyle": {
+                "color": "#91CC7566",
+                "borderColor": "#fff",
+                "borderWidth": 1
+            }
+        },
+        {
+            "type": "scatter",
+            "coordinateSystem": "geo",
+            "symbolSize": 150,
+            "data": [
+                {
+                    "name": "\u534e\u5357\u533a\u57df",
+                    "value": [
+                        115.5,
+                        23.8,
+                        "10.62%"
+                    ]
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "color": "#333",
+                "margin": 8,
+                "fontSize": 12,
+                "formatter": function(p){return p.name + '\n' + p.value[2];}
+            },
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "showContent": true,
+                "alwaysShowContent": false,
+                "showDelay": 0,
+                "hideDelay": 100,
+                "formatter": function (params) { return params.name + '\uff1a' + params.value[2]; },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0,
+                "padding": 5
+            },
+            "itemStyle": {
+                "color": "#5470C666",
+                "borderColor": "#fff",
+                "borderWidth": 1
+            }
+        },
+        {
+            "type": "scatter",
+            "coordinateSystem": "geo",
+            "symbolSize": 260,
+            "data": [
+                {
+                    "name": "\u534e\u5317\u533a\u57df",
+                    "value": [
+                        120.8,
+                        37.8,
+                        "61.28%"
+                    ]
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "top",
+                "color": "#333",
+                "margin": 8,
+                "fontSize": 12,
+                "formatter": function(p){return p.name + '\n' + p.value[2];}
+            },
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "showContent": true,
+                "alwaysShowContent": false,
+                "showDelay": 0,
+                "hideDelay": 100,
+                "formatter": function (params) { return params.name + '\uff1a' + params.value[2]; },
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0,
+                "padding": 5
+            },
+            "itemStyle": {
+                "color": "#EE666666",
+                "borderColor": "#fff",
+                "borderWidth": 1
+            }
+        },
+        {
+            "type": "scatter",
+            "name": "\u4e2d\u96c6",
+            "coordinateSystem": "geo",
+            "symbolSize": 12,
+            "data": [],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            },
+            "itemStyle": {
+                "color": "#FF006E"
+            }
+        },
+        {
+            "type": "scatter",
+            "name": "\u5bf0\u5b87",
+            "coordinateSystem": "geo",
+            "symbolSize": 12,
+            "data": [],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            },
+            "itemStyle": {
+                "color": "#3A86FF"
+            }
+        },
+        {
+            "type": "scatter",
+            "name": "\u5bcc\u534e",
+            "coordinateSystem": "geo",
+            "symbolSize": 12,
+            "data": [],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            },
+            "itemStyle": {
+                "color": "#06D6A0"
+            }
+        },
+        {
+            "type": "scatter",
+            "name": "\u9a6c\u58eb\u57fa",
+            "coordinateSystem": "geo",
+            "symbolSize": 12,
+            "data": [],
+            "label": {
+                "show": true,
+                "position": "top",
+                "margin": 8
+            },
+            "itemStyle": {
+                "color": "grey"
+            }
+        },
+        {
+            "type": "effectScatter",
+            "coordinateSystem": "geo",
+            "showEffectOn": "render",
+            "rippleEffect": {
+                "show": false,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "symbolSize": 37.86,
+            "data": [
+                {
+                    "name": "\u4e2d\u96c6(\u9752\u5c9b)|||44.40%",
+                    "value": [
+                        121.825932,
+                        39.043418,
+                        44.4
+                    ]
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "right",
+                "color": "#333",
+                "margin": 8,
+                "fontSize": 12,
+                "formatter": function(p){var s=p.name.split('|||');return s[0]+'\n'+s[1];}
+            },
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "showContent": true,
+                "alwaysShowContent": false,
+                "showDelay": 0,
+                "hideDelay": 100,
+                "formatter": function(p){var s=p.name.split('|||');return s[0] + ' ||| ' + s[1];},
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0,
+                "padding": 5
+            },
+            "itemStyle": {
+                "color": "#FF006E",
+                "borderColor": "#FFFFFF",
+                "borderWidth": 0.5
+            }
+        },
+        {
+            "type": "effectScatter",
+            "coordinateSystem": "geo",
+            "showEffectOn": "render",
+            "rippleEffect": {
+                "show": false,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "symbolSize": 26.68,
+            "data": [
+                {
+                    "name": "\u5bf0\u5b87(\u9752\u5c9b)|||27.20%",
+                    "value": [
+                        120.161443,
+                        36.055967,
+                        27.2
+                    ]
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "right",
+                "color": "#333",
+                "margin": 8,
+                "fontSize": 12,
+                "formatter": function(p){var s=p.name.split('|||');return s[0]+'\n'+s[1];}
+            },
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "showContent": true,
+                "alwaysShowContent": false,
+                "showDelay": 0,
+                "hideDelay": 100,
+                "formatter": function(p){var s=p.name.split('|||');return s[0] + ' ||| ' + s[1];},
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0,
+                "padding": 5
+            },
+            "itemStyle": {
+                "color": "#3A86FF",
+                "borderColor": "#FFFFFF",
+                "borderWidth": 0.5
+            }
+        },
+        {
+            "type": "effectScatter",
+            "coordinateSystem": "geo",
+            "showEffectOn": "render",
+            "rippleEffect": {
+                "show": false,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "symbolSize": 27.459999999999997,
+            "data": [
+                {
+                    "name": "\u9a6c\u58eb\u57fa(\u9752\u5c9b)|||28.40%",
+                    "value": [
+                        120.35699,
+                        36.27471,
+                        28.4
+                    ]
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "right",
+                "color": "#333",
+                "margin": 8,
+                "fontSize": 12,
+                "formatter": function(p){var s=p.name.split('|||');return s[0]+'\n'+s[1];}
+            },
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "showContent": true,
+                "alwaysShowContent": false,
+                "showDelay": 0,
+                "hideDelay": 100,
+                "formatter": function(p){var s=p.name.split('|||');return s[0] + ' ||| ' + s[1];},
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0,
+                "padding": 5
+            },
+            "itemStyle": {
+                "color": "grey",
+                "borderColor": "#FFFFFF",
+                "borderWidth": 0.5
+            }
+        },
+        {
+            "type": "effectScatter",
+            "coordinateSystem": "geo",
+            "showEffectOn": "render",
+            "rippleEffect": {
+                "show": false,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "symbolSize": 29.085,
+            "data": [
+                {
+                    "name": "\u4e2d\u96c6(\u592a\u4ed3)|||30.90%",
+                    "value": [
+                        121.188718,
+                        31.636139,
+                        30.9
+                    ]
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "right",
+                "color": "#333",
+                "margin": 8,
+                "fontSize": 12,
+                "formatter": function(p){var s=p.name.split('|||');return s[0]+'\n'+s[1];}
+            },
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "showContent": true,
+                "alwaysShowContent": false,
+                "showDelay": 0,
+                "hideDelay": 100,
+                "formatter": function(p){var s=p.name.split('|||');return s[0] + ' ||| ' + s[1];},
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0,
+                "padding": 5
+            },
+            "itemStyle": {
+                "color": "#FF006E",
+                "borderColor": "#FFFFFF",
+                "borderWidth": 0.5
+            }
+        },
+        {
+            "type": "effectScatter",
+            "coordinateSystem": "geo",
+            "showEffectOn": "render",
+            "rippleEffect": {
+                "show": false,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "symbolSize": 18.75,
+            "data": [
+                {
+                    "name": "\u5bf0\u5b87(\u542f\u4e1c)|||15.00%",
+                    "value": [
+                        121.688998,
+                        31.72661,
+                        15
+                    ]
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "right",
+                "color": "#333",
+                "margin": 8,
+                "fontSize": 12,
+                "formatter": function(p){var s=p.name.split('|||');return s[0]+'\n'+s[1];}
+            },
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "showContent": true,
+                "alwaysShowContent": false,
+                "showDelay": 0,
+                "hideDelay": 100,
+                "formatter": function(p){var s=p.name.split('|||');return s[0] + ' ||| ' + s[1];},
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0,
+                "padding": 5
+            },
+            "itemStyle": {
+                "color": "#3A86FF",
+                "borderColor": "#FFFFFF",
+                "borderWidth": 0.5
+            }
+        },
+        {
+            "type": "effectScatter",
+            "coordinateSystem": "geo",
+            "showEffectOn": "render",
+            "rippleEffect": {
+                "show": false,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            },
+            "symbolSize": 20.245,
+            "data": [
+                {
+                    "name": "\u5bcc\u534e(\u5e7f\u5dde)|||17.30%",
+                    "value": [
+                        113.16897,
+                        22.84834,
+                        17.3
+                    ]
+                }
+            ],
+            "label": {
+                "show": true,
+                "position": "right",
+                "color": "#333",
+                "margin": 8,
+                "fontSize": 12,
+                "formatter": function(p){var s=p.name.split('|||');return s[0]+'\n'+s[1];}
+            },
+            "tooltip": {
+                "show": true,
+                "trigger": "item",
+                "triggerOn": "mousemove|click",
+                "axisPointer": {
+                    "type": "line"
+                },
+                "showContent": true,
+                "alwaysShowContent": false,
+                "showDelay": 0,
+                "hideDelay": 100,
+                "formatter": function(p){var s=p.name.split('|||');return s[0] + ' ||| ' + s[1];},
+                "textStyle": {
+                    "fontSize": 14
+                },
+                "borderWidth": 0,
+                "padding": 5
+            },
+            "itemStyle": {
+                "color": "#06D6A0",
+                "borderColor": "#FFFFFF",
+                "borderWidth": 0.5
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "",
+                "",
+                "",
+                "\u4e2d\u96c6",
+                "\u5bf0\u5b87",
+                "\u5bcc\u534e",
+                "\u9a6c\u58eb\u57fa",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "selected": {
+                "": true,
+                "\u4e2d\u96c6": true,
+                "\u5bf0\u5b87": true,
+                "\u5bcc\u534e": true,
+                "\u9a6c\u58eb\u57fa": true
+            },
+            "show": true,
+            "left": "center",
+            "top": "70",
+            "orient": "horizontal",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "textStyle": {
+                "fontSize": 14
+            }
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "textStyle": {
+            "fontSize": 14
+        },
+        "borderWidth": 0,
+        "padding": 5
+    },
+    "title": [
+        {
+            "text": "\u51b7\u7bb1\u5e02\u573a\u4efd\u989d\u5360\u6bd4\u5206\u6790\u56fe",
+            "left": "center",
+            "top": "20",
+            "padding": 5,
+            "itemGap": 10,
+            "textStyle": {
+                "fontWeight": "bold",
+                "fontSize": 32
+            }
+        }
+    ],
+    "geo": {
+        "map": "china",
+        "roam": true,
+        "aspectScale": 0.75,
+        "nameProperty": "name",
+        "selectedMode": false,
+        "itemStyle": {
+            "color": "#E8ECEF",
+            "borderColor": "#AAB7C4",
+            "borderWidth": 1.5
+        },
+        "emphasis": {}
     }
-
-    factory_raw_data = [
-        ("中集(青岛)", 44.4),
-        ("寰宇(青岛)", 27.2),
-        ("马士基(青岛)", 28.4),
-        ("中集(太仓)", 30.9),
-        ("寰宇(启东)", 15),
-        ("富华(广州)", 17.3),
-
-    ]
-
-    brand_map = {
-        "中集": "#FF006E", "寰宇": "#3A86FF",
-        "富华": "#06D6A0", "马士基": "grey",
-    }
-
-    def get_brand_color(name):
-        for brand, color in brand_map.items():
-            if brand in name: return color
-        return "#AAB7C4"
-
-    geo = Geo(init_opts=opts.InitOpts(width="100%", height="1100px", bg_color="#F5F7FA"))
-
-    geo.add_schema(
-        maptype="china",
-        itemstyle_opts=opts.ItemStyleOpts(color="#E8ECEF", border_color="#AAB7C4", border_width=1.5),
-        is_roam=True
-    )
-
-    # 2. 区域占比圆圈
-    # region_bubbles = [
-    #     {"name": "华东区域", "coord": [121.0, 31.0], "size": 360, "color": "#91CC7566", "percent": "50.57%"},
-    #     {"name": "华南区域", "coord": [115.5, 23.8], "size": 290, "color": "#5470C666", "percent": "26.06%"},
-    #     {"name": "华北区域", "coord": [120.8, 37.8], "size": 350, "color": "#EE666666", "percent": "23.37%"},
-    # ]
-    region_bubbles = [
-        {"name": "华东区域", "coord": [121.0, 31.0], "size": 200, "color": "#91CC7566", "percent": "28.1%"},
-        {"name": "华南区域", "coord": [115.5, 23.8], "size": 150, "color": "#5470C666", "percent": "10.62%"},
-        {"name": "华北区域", "coord": [120.8, 37.8], "size": 260, "color": "#EE666666", "percent": "61.28%"},
-    ]
-    for region in region_bubbles:
-        geo.add_coordinate(region["name"], region["coord"][0], region["coord"][1])
-        geo.add(
-            series_name="",
-            data_pair=[(region["name"], region["percent"])],
-            type_=ChartType.SCATTER,
-            symbol_size=region["size"],
-            itemstyle_opts=opts.ItemStyleOpts(color=region["color"], border_color="#fff", border_width=1),
-            label_opts=opts.LabelOpts(
-                is_show=True,
-                formatter=JsCode("""function(p){return p.name + '\\n' + p.value[2];}"""),
-                font_size=12,
-                color="#333"
-            ),
-            tooltip_opts=opts.TooltipOpts(
-                is_show=True,
-                formatter=JsCode("function (params) { return params.name + '：' + params.value[2]; }")
-            ),
-        )
-
-
-    # 3. 厂家图例（手动模拟，放在标题下方）
-    for brand, color in brand_map.items():
-        geo.add(
-            series_name=brand,
-            data_pair=[],  # 不放真实数据，只为了引出图例
-            type_=ChartType.SCATTER,
-            itemstyle_opts=opts.ItemStyleOpts(color=color),
-        )
-
-    # 4. 厂家数据渲染
-    for name, val in factory_raw_data:
-        lbl = f"{name}|||{val:.2f}%"
-        geo.add_coordinate(lbl, base_coords[name][0], base_coords[name][1])
-        color = get_brand_color(name)
-
-        geo.add(
-            series_name="",
-            data_pair=[(lbl, val)],
-            type_=ChartType.EFFECT_SCATTER,
-            symbol_size=(15 + (val / 60) * 65) * 0.6,
-            itemstyle_opts=opts.ItemStyleOpts(color=color, border_color="#FFFFFF", border_width=0.5),
-            label_opts=opts.LabelOpts(
-                is_show=True,
-                position="right",
-                formatter=JsCode("function(p){var s=p.name.split('|||');return s[0]+'\\n'+s[1];}"
-                                 ),
-                font_size=12,
-                color="#333"
-                ),
-            # 【修复重复数据】自定义 tooltip 格式，避免显示经纬度
-            tooltip_opts=opts.TooltipOpts(
-                formatter=JsCode("function(p){var s=p.name.split('|||');return s[0] + ' ||| ' + s[1];}")
-            ),
-            effect_opts=opts.EffectOpts(is_show=False)
-        )
-
-    # 5. 全局配置
-    geo.set_global_opts(
-        title_opts=opts.TitleOpts(
-            title="冷箱市场份额占比分析图",
-            pos_left="center",
-            pos_top="20",
-            title_textstyle_opts=opts.TextStyleOpts(font_size=32, font_weight="bold"),
-        ),
-        # 显示厂家图例，并将其放在标题下方
-        legend_opts=opts.LegendOpts(
-            is_show=True,
-            pos_top="70",
-            pos_left="center",
-            orient="horizontal",
-            textstyle_opts=opts.TextStyleOpts(font_size=14)
-        ),
-        tooltip_opts=opts.TooltipOpts(is_show=True),
-    )
-
-    geo.render("index.html")
-    print("可视化完成：index.html")
-
-
-if __name__ == "__main__":
-    factory_map()
+};
+        chart_0e137f4b425446749be492470e591e79.setOption(option_0e137f4b425446749be492470e591e79);
+            window.addEventListener('resize', function(){
+                chart_0e137f4b425446749be492470e591e79.resize();
+            })
+    </script>
+</body>
+</html>
